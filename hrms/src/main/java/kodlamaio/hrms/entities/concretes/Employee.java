@@ -1,7 +1,5 @@
 package kodlamaio.hrms.entities.concretes;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,37 +7,27 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+@EqualsAndHashCode(callSuper=false)
 @Data
 @Entity
-@Table(name = "job_positions")
+@Table(name = "employees")
 @NoArgsConstructor
 @AllArgsConstructor
-
-public class JobPosition {
-
+public class Employee extends User {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
 	@Column(name = "id")
 	private int id;
-
-	@Column(name = "title")
-	private String title;
 	
-	@CreatedDate
-	private Date createdDate;
+	@Column(name = "first_name")
+	private String firstName;
 	
-	@LastModifiedDate
-	private Date updatedDate;
-	
-	@Column(name = "status")
-	private boolean status;
-
+	@Column(name = "last_name")
+	private String lastName;
 }
